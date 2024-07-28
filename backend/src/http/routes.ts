@@ -5,17 +5,17 @@ import { userController, fileController } from "../controllers/";
 const routes = express.Router();
 
 //user
-routes.get(
+routes.post(
   "/user/register",
   HttpExpressAdapter.execute(userController.register.bind(userController))
 );
-routes.get(
+routes.post(
   "/user/login",
   HttpExpressAdapter.execute(userController.login.bind(userController))
 );
 
 //files
-routes.get("/file/upload", HttpExpressAdapter.execute(fileController.upload));
+routes.post("/file/upload", HttpExpressAdapter.execute(fileController.upload));
 
 export default routes;
 console.log();
