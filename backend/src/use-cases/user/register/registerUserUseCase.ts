@@ -5,7 +5,7 @@ import { getConstants } from "../../../constants";
 import { ApplicationError } from "../../../errors/applicationError";
 
 export class RegisterUserUseCase {
-  constructor(public readonly userRepository: UserRepository) {}
+  constructor(private readonly userRepository: UserRepository) {}
 
   public async execute(payloadDto: RegisterUserRequestDto) {
     try {

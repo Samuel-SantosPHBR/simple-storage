@@ -7,8 +7,8 @@ export default function Home() {
   const [files, setFiles] = useState([]);
 
   const handleChange = (event) => {
-    setFiles([...event.target.files]);
-    console.log(event.target.files);
+    const files = event.target.files;
+    setFiles([...files]);
   };
 
   return (

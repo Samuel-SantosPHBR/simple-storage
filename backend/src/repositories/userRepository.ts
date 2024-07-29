@@ -6,6 +6,7 @@ import { RegisterUserRequestDto } from "../use-cases/user/register/registerUserR
 
 export class UserRepository {
   private userRepository: Repository<User>;
+
   constructor() {
     this.userRepository = AppDataSource.getRepository(User);
   }

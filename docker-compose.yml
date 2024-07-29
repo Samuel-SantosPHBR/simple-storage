@@ -4,10 +4,19 @@ services:
   backend:
     build: ./backend
     command: npm run dev
+    depends_on:
+      - db
     ports:
       - "3001:3001"
     volumes:
       - ./backend:/usr/app
+  # frontend:
+  #   build: ./frontend
+  #   command: npm run dev
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./frontend:/usr/app
   db:
     image: postgres
     restart: always
