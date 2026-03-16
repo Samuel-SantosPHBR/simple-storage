@@ -16,11 +16,9 @@ class UploadFileMiddleware {
         cb(null, "./uploads");
       },
       filename: function (req, file, cb) {
-        const fileName =
-          md5(`${Date.now()}`) +
-          md5(`${req.user}`) +
-          "------" +
-          file.originalname;
+        const timestamp = Date.now();
+        const userHash = md5(`${req.user}`);
+        const fileName = `${timestamp}_${userHash}_${file.originalname}`;
 
         req.headers.fileName = fileName;
         cb(null, fileName);

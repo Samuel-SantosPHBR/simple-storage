@@ -10,6 +10,8 @@ services:
       - "3001:3001"
     volumes:
       - ./backend:/usr/app
+      - backend_node_modules:/usr/app/node_modules
+      - uploads_data:/usr/app/uploads
   frontend:
     build: ./frontend
     command: npm run dev
@@ -17,6 +19,7 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend:/usr/app
+      - frontend_node_modules:/usr/app/node_modules
   db:
     image: postgres
     restart: always
@@ -24,8 +27,14 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
+      POSTGRES_DB: storage
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+
+volumes:
+  backend_node_modules:
+  frontend_node_modules:
+  uploads_data:

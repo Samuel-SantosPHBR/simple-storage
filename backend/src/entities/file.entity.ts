@@ -8,6 +8,6 @@ export class File {
   @Column({ type: "varchar" })
   fileName: string;
 
-  @Column({ type: "varchar" })
+  @Column({ type: "integer" })
   userId: number;
 }
